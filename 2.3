@@ -1,0 +1,26 @@
+import pandas as pd
+import numpy as np
+
+# Task 1: Create and Explore a DataFrame
+data = {
+    'Name': ['Amita', 'Bharat', 'Chinmay', 'Krish', 'Rithesh'],
+    'Age': [25, 30, 35, 34, 28],
+    'City': ['Mumbai', 'Pune', 'Nashik', 'Aurangabad', 'Nagpur']
+}
+df = pd.DataFrame(data)
+print("Head:\n", df.head())
+print("\nTail:\n", df.tail())
+
+# Task 2: Select and Filter Data
+print("\nSelect Name & City:\n", df[['Name', 'City']])
+print("\nAge > 30:\n", df[df['Age'] > 30])
+
+# Task 3: Handle Missing Values
+df.loc[2, 'Age'] = np.nan  # introduce a missing value
+print("\nWith NaN:\n", df)
+print("\nFill NaN with 0:\n", df.fillna(0))
+print("\nDrop rows with NaN:\n", df.dropna())
+
+# Task 4: Data Operations
+print("\nSorted by Age:\n", df.sort_values('Age'))
+print("\nGroup by City and get mean Age:\n", df.groupby('City')['Age'].mean())
