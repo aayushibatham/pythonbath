@@ -1,0 +1,37 @@
+import numpy as np
+from scipy.linalg import eig
+
+# -------------------------------
+# Part 1: Eigenvalues & Eigenvectors
+# -------------------------------
+print("----- Eigenvalues and Eigenvectors -----")
+
+# Define a square matrix
+A = np.array([[4, -2],
+              [1,  1]])
+
+# Calculate eigenvalues and eigenvectors
+eigenvalues, eigenvectors = eig(A)
+
+# Display the results
+print("Matrix A:\n", A)
+print("Eigenvalues:\n", eigenvalues)
+print("Eigenvectors:\n", eigenvectors)
+
+# -------------------------------
+# Part 2: FFT and IFFT
+# -------------------------------
+print("\n----- FFT and IFFT -----")
+
+# Define a simple array
+data = np.array([1, 2, 3, 4])
+
+# Perform FFT
+fft_result = np.fft.fft(data)
+print("Original Data:", data)
+print("FFT Result:", fft_result)
+
+# Perform IFFT
+ifft_result = np.fft.ifft(fft_result)
+print("IFFT Result:", ifft_result)
+
