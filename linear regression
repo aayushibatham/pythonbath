@@ -1,0 +1,37 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Prepare Data
+X = np.array([[1], [2], [3], [4], [5]])
+y = np.array([100, 200, 300, 400, 500])
+
+# Visualize the Data
+plt.scatter(X, y, color='blue')
+plt.xlabel("Area")
+plt.ylabel("Price")
+plt.title("Original Data")
+plt.show()
+
+# Train the Model
+model = LinearRegression()
+model.fit(X, y)
+
+# Display Slope and Intercept
+print("Slope (m):", model.coef_[0])
+print("Intercept (c):", model.intercept_)
+
+# Predict and Evaluate
+y_pred = model.predict(X)
+print("MSE:", mean_squared_error(y, y_pred))
+print("R² Score:", r2_score(y, y_pred))
+
+# Visualize Regression Line
+plt.scatter(X, y, color='blue')
+plt.plot(X, y_pred, color='red')
+plt.xlabel("Area")
+plt.ylabel("Price")
+plt.title("Linear Regression Line")
+plt.show()
