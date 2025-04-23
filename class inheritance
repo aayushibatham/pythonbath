@@ -1,0 +1,43 @@
+class Student:
+    def __init__(self, rollno, name, marks):
+        self.rollno = rollno
+        self.name = name
+        self.marks = marks
+
+    def display(self):
+        print(f"{self.rollno} - {self.name} - Marks: {self.marks}")
+
+class Fees(Student):
+    def __init__(self, rollno, name, marks, fees):
+        super().__init__(rollno, name, marks)
+        self.fees = fees
+
+    def submit_fees(self):
+        print(f"{self.name} paid ₹{self.fees}")
+
+class Result(Student):
+    def __init__(self, rollno, name, marks):
+        super().__init__(rollno, name, marks)
+        self.grade = self.get_grade()
+
+    def get_grade(self):
+        return "A" if self.marks >= 90 else "B" if self.marks >= 75 else "C" if self.marks >= 60 else "D"
+
+    def display(self):
+        super().display()
+        print(f"Grade: {self.grade}")
+
+# List of students
+students = [
+    Result(1, "Neha", 92),
+    Result(2, "Amit", 78),
+    Result(3, "Ravi", 88),
+    Result(4, "Priya", 88)
+]
+
+# Sort by marks, then name
+students.sort(key=lambda s: (s.marks, s.name))
+
+# Display sorted results
+for s in students:
+    s.display()
