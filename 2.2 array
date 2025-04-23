@@ -1,0 +1,28 @@
+import numpy as np
+
+# Task 1: Creating and Printing Ndarray
+arr1 = np.array([1, 2, 3, 4, 5])  # 1D array
+arr2 = np.array([[1, 2], [3, 4]])  # 2D array
+
+print("1D Array:", arr1)
+print("2D Array:\n", arr2)
+
+# Task 2: Exploring Class and Attributes
+print("\nShape of arr1:", arr1.shape)
+print("Size of arr1:", arr1.size)
+print("Data type of arr1:", arr1.dtype)
+print("Number of dimensions of arr1:", arr1.ndim)
+print("Item size of arr1 (in bytes):", arr1.itemsize)
+
+# Task 3: Performing Basic Operations
+arr3 = np.array([6, 7, 8, 9, 10])
+print("\nElement-wise addition:", arr1 + arr3)
+print("Element-wise subtraction:", arr1 - arr3)
+print("Element-wise multiplication:", arr1 * arr3)
+print("Element-wise division:", arr1 / arr3)
+
+# Task 4: Utilizing Mathematical Functions
+print("\nSum of arr1:", np.sum(arr1))
+print("Mean of arr1:", np.mean(arr1))
+print("Max of arr1:", np.max(arr1))
+print("Min of arr1:", np.min(arr1))
