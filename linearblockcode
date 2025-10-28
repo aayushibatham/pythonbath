@@ -1,0 +1,32 @@
+pkg load communications
+clc
+clear all
+
+k = input('enter the length of msg used');
+n = input('enter length of code word used');
+p = input('enter the parity matrix:');
+
+G = [eye(k) p];
+disp('G =');
+disp(G);
+
+m = input('Enter message word');
+c = encode(m, n, k, 'linear', G);
+disp('C =');
+disp(c);
+
+D = decode(c, n, k, 'linear', G);
+disp('D =');
+disp(D);
+
+H = [p' eye(n - k)];
+disp('H =');
+disp(H);
+
+R = input('enter the recieved code word');
+disp('R =');
+disp(R);
+
+S = rem(R * H', 2);
+disp('S =');
+disp(S);
