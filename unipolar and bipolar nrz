@@ -1,0 +1,60 @@
+clc
+clear all
+
+% ********** Unipolar NRZ plot **********
+n = input('Enter the input bits: ');
+
+for i = 1:length(n)
+    if n(i) == 1
+        nn(i) = 3;
+    else
+        nn(i) = 0;
+    end
+end
+
+i = 1;
+t = 0:0.01:length(n);
+for j = 1:length(t)
+    if t(j) <= i
+        y(j) = nn(i);
+    else
+        y(j) = nn(i);
+        i = i + 1;
+    end
+end
+
+figure(1)
+plot(t, y, 'r', 'LineWidth', 2)
+axis([0 length(n) -10 10])
+title('Unipolar NRZ')
+xlabel('Time')
+ylabel('Amplitude')
+
+
+% ********** Bipolar NRZ plot **********
+for i = 1:length(n)
+    if n(i) == 1
+        nn(i) = 3;
+    else
+        nn(i) = -3;
+    end
+end
+
+i = 1;
+t = 0:0.01:length(n);
+for j = 1:length(t)
+    if t(j) <= i
+        y(j) = nn(i);
+    else
+        y(j) = nn(i);
+        i = i + 1;
+    end
+end
+
+figure(2)
+plot(t, y, 'r', 'LineWidth', 2)
+axis([0 length(n) -10 10])
+title('Bipolar NRZ')
+xlabel('Time')
+ylabel('Amplitude')
+
